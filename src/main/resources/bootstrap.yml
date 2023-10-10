@@ -1,0 +1,22 @@
+server:
+ port: 8082
+
+spring:
+ application:
+  name: ms-session
+ config:
+  import: "optional:configserver:"
+ cloud:
+  config:
+   uri:
+    - http://localhost:8080
+   label: latest
+ profiles:
+  active:
+   - pre
+
+management:
+ endpoints:
+  web:
+   exposure:
+    include: "*"
